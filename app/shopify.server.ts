@@ -8,17 +8,6 @@ import { PrismaSessionStorage } from "@shopify/shopify-app-session-storage-prism
 import { restResources } from "@shopify/shopify-api/rest/admin/2024-07";
 import prisma from "./db.server";
 
-console.log("🚀 ~ process.env:", process.env.SCOPES?.split(","));
-
-if (process.env.NODE_ENV === 'production') {
-  import('dotenv').then(dotenv => {
-    dotenv.config();
-    console.log('dotenv loaded');
-  }).catch(err => {
-    console.error('Error loading dotenv:', err);
-  });
-}
-
 const shopify = shopifyApp({
   isEmbeddedApp: false,
   apiKey: process.env.SHOPIFY_API_KEY,
