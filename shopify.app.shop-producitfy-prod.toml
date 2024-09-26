@@ -3,7 +3,7 @@
 client_id = "b1be4aab7a3149f285b9228e9fbc818f"
 name = "Shop Producitfy Prod"
 handle = "shop-producitfy-prod"
-application_url = "http://localhost:3000/"
+application_url = "https://development.d3kapy9jot5pw8.amplifyapp.com/"
 embedded = false
 
 [build]
@@ -15,9 +15,9 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "http://localhost:3000/auth/callback",
-  "http://localhost:3000/auth/shopify/callback",
-  "http://localhost:3000/api/auth/callback"
+  "https://development.d3kapy9jot5pw8.amplifyapp.com/auth/callback",
+  "https://development.d3kapy9jot5pw8.amplifyapp.com/auth/shopify/callback",
+  "https://development.d3kapy9jot5pw8.amplifyapp.com/api/auth/callback"
 ]
 
 [webhooks]
