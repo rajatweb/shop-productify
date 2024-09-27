@@ -1,0 +1,88 @@
+name: Build and Deploy Remix/Shopify App
+
+on:
+  push:
+    branches:
+      - '*'   # Run the build for every branch
+  pull_request:
+    branches:
+      - master   # Ensure build runs for pull requests to master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the code from the repo
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up the latest Node.js version
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'node'   # Latest Node.js version
+          cache: 'npm'
+
+      # Step 3: Install dotenv-cli globally
+      - name: Install dotenv-cli globally
+        run: npm install -g dotenv-cli
+
+      # Step 4: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 5: Run tests (if any)
+      - name: Run tests
+        run: npm test  # Replace with appropriate test command if needed
+
+      # Step 6: Build the app
+      - name: Build the app
+        run: npm run build
+
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/master'   # Deploy only when pushing to the master branch
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the code from the repo
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'node'
+
+      # Step 3: Install dotenv-cli globally
+      - name: Install dotenv-cli globally
+        run: npm install -g dotenv-cli
+
+      # Step 4: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 5: Build the app (if not using artifacts)
+      - name: Build the app
+        run: npm run build
+
+      # Step 6: Deploy to EC2 using SSH
+      - name: Deploy to EC2
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+        run: |
+          REMOTE_USER="ubuntu"
+          REMOTE_HOST="your-ec2-ip-or-domain"
+          APP_DIR="/var/www/shop-productify"
+
+          echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+
+          ssh -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST << 'EOF'
+            cd $APP_DIR
+            git pull origin master
+            npm install --production
+            npm run build
+            pm2 restart all
+          EOF
