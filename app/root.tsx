@@ -7,10 +7,12 @@ import {
 } from "@remix-run/react";
 
 import tailwindStyle from "~/styles/tailwind.css?url";
+import globalStyle from "~/styles/global.css?url";
 
 export const links = () => {
   return [
     { rel: "stylesheet", href: tailwindStyle },
+    { rel: "stylesheet", href: globalStyle },
     {
       rel: "stylesheet",
       href: "https://fonts.googleapis.com/css2?family=Expo+2&display=swap",
