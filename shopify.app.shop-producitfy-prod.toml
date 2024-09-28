@@ -3,10 +3,12 @@
 client_id = "b1be4aab7a3149f285b9228e9fbc818f"
 name = "Shop Producitfy Prod"
 handle = "shop-producitfy-prod"
-application_url = "https://development.d3kapy9jot5pw8.amplifyapp.com/"
+application_url = "http://localhost:3000/"
 embedded = false
 
 [build]
+automatically_update_urls_on_dev = false
+dev_store_url = "hydrogen-web.myshopify.com"
 include_config_on_deploy = true
 
 [access_scopes]
@@ -15,9 +17,9 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://development.d3kapy9jot5pw8.amplifyapp.com/auth/callback",
-  "https://development.d3kapy9jot5pw8.amplifyapp.com/auth/shopify/callback",
-  "https://development.d3kapy9jot5pw8.amplifyapp.com/api/auth/callback"
+  "http://localhost:3000/auth/callback",
+  "http://localhost:3000/auth/shopify/callback",
+  "http://localhost:3000/api/auth/callback"
 ]
 
 [webhooks]

@@ -3,7 +3,7 @@
 client_id = "dd830b150fe1921a403b8b33417f58b7"
 name = "Shop Producitfy Dev"
 handle = "shop-producitfy-dev"
-application_url = "https://testimonials-moscow-journal-human.trycloudflare.com"
+application_url = "https://good-ensuring-leaders-chile.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://testimonials-moscow-journal-human.trycloudflare.com/auth/callback",
-  "https://testimonials-moscow-journal-human.trycloudflare.com/auth/shopify/callback",
-  "https://testimonials-moscow-journal-human.trycloudflare.com/api/auth/callback"
+  "https://good-ensuring-leaders-chile.trycloudflare.com/auth/callback",
+  "https://good-ensuring-leaders-chile.trycloudflare.com/auth/shopify/callback",
+  "https://good-ensuring-leaders-chile.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
