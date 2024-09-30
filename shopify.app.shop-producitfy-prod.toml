@@ -3,10 +3,12 @@
 client_id = "b1be4aab7a3149f285b9228e9fbc818f"
 name = "Shop Producitfy Prod"
 handle = "shop-producitfy-prod"
-application_url = "http://localhost:3000/"
+application_url = "https://shopify-app.rajatweb.dev/"
 embedded = false
 
 [build]
+automatically_update_urls_on_dev = false
+dev_store_url = "hydrogen-web.myshopify.com"
 include_config_on_deploy = true
 
 [access_scopes]
@@ -15,9 +17,9 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "http://localhost:3000/auth/callback",
-  "http://localhost:3000/auth/shopify/callback",
-  "http://localhost:3000/api/auth/callback"
+  "https://shopify-app.rajatweb.dev/auth/callback",
+  "https://shopify-app.rajatweb.dev/auth/shopify/callback",
+  "https://shopify-app.rajatweb.dev/api/auth/callback"
 ]
 
 [webhooks]

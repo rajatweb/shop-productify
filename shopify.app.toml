@@ -3,7 +3,7 @@
 client_id = "dd830b150fe1921a403b8b33417f58b7"
 name = "Shop Producitfy Dev"
 handle = "shop-producitfy-dev"
-application_url = "https://crisis-falling-entertainment-hunger.trycloudflare.com"
+application_url = "https://good-ensuring-leaders-chile.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://crisis-falling-entertainment-hunger.trycloudflare.com/auth/callback",
-  "https://crisis-falling-entertainment-hunger.trycloudflare.com/auth/shopify/callback",
-  "https://crisis-falling-entertainment-hunger.trycloudflare.com/api/auth/callback"
+  "https://good-ensuring-leaders-chile.trycloudflare.com/auth/callback",
+  "https://good-ensuring-leaders-chile.trycloudflare.com/auth/shopify/callback",
+  "https://good-ensuring-leaders-chile.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
